@@ -14,7 +14,6 @@ async function main() {
   });
 
   // Create log
-
   // const newLog = LogModel.create({
   //   level: "info",
   //   message: "Hello, world!",
