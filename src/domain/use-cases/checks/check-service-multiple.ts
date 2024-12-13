@@ -1,7 +1,7 @@
 import { LogEntity, LogSeverityLevel } from "../../entities/log.entity";
 import { LogRepository } from "../../repository/log.repository";
 
-interface CheckServiceMultipleUseCase {
+interface CheckServiceUseCase {
   execute(url: string): Promise<boolean>;
 }
 
@@ -11,18 +11,12 @@ type ErrorCallback = ((error: string) => void) | undefined;
 // type SuccessCallback = () => void;
 // type ErrorCallback = (error: string) => void;
 
-export class CheckServiceMultiple implements CheckServiceMultipleUseCase {
+export class CheckService implements CheckServiceUseCase {
   constructor(
     private readonly successCallback: SuccessCallback,
     private readonly errorCallback: ErrorCallback,
-    private readonly logRepository: LogRepository[]
+    private readonly logRepository: LogRepository
   ) {}
-
-  private callLogs(log: LogEntity) {
-    this.logRepository.forEach((logRepository) => {
-      logRepository.saveLogs(log);
-    });
-  }
 
   public async execute(url: string): Promise<boolean> {
     try {
@@ -38,7 +32,7 @@ export class CheckServiceMultiple implements CheckServiceMultipleUseCase {
         origin: "check-service.ts",
       });
 
-      this.callLogs(log);
+      this.logRepository.saveLogs(log);
 
       this.successCallback && this.successCallback();
       return true;
@@ -51,7 +45,7 @@ export class CheckServiceMultiple implements CheckServiceMultipleUseCase {
         origin: "check-service.ts",
       });
 
-      this.callLogs(log);
+      this.logRepository.saveLogs(log);
 
       this.errorCallback && this.errorCallback(`${errorString}`);
       return false;

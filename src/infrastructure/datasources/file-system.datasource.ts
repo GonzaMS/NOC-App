@@ -31,7 +31,7 @@ export class FileSystemDataSource implements LogDataSource {
 
     if (newLog.level === LogSeverityLevel.INFO) return;
 
-    if (newLog.level === LogSeverityLevel.WARNING) {
+    if (newLog.level === LogSeverityLevel.WARN) {
       fs.appendFileSync(this.mediumLogsPath, JsonAsLog);
     } else {
       fs.appendFileSync(this.highLogsPath, JsonAsLog);
@@ -53,7 +53,7 @@ export class FileSystemDataSource implements LogDataSource {
       case LogSeverityLevel.INFO:
         return this.getLogsFromFile(this.allLogsPath);
 
-      case LogSeverityLevel.WARNING:
+      case LogSeverityLevel.WARN:
         return this.getLogsFromFile(this.mediumLogsPath);
 
       case LogSeverityLevel.ERROR:

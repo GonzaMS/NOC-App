@@ -1,7 +1,7 @@
 import { LogModel } from "../../data/mongo-config/models/log.model";
 import { LogDataSource, LogEntity, LogSeverityLevel } from "../../domain";
 
-export class MongoDbDataSource implements LogDataSource {
+export class MongoLogDatasource implements LogDataSource {
   async saveLogs(log: LogEntity): Promise<void> {
     const newLog = await LogModel.create(log);
     console.log("Mongo log created", newLog);
