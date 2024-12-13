@@ -1,6 +1,6 @@
 import "dotenv/config";
 import { envs } from "./config/envs.plugin";
-import { MongoConnection } from "./data/mongo/init";
+import { MongoConnection } from "./data/mongo-config/init";
 import { Server } from "./presentation/server";
 
 (async () => {
