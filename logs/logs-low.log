@@ -1,0 +1,5 @@
+{"level":"info","message":"Service with http://google.com working","origin":"check-service.ts","createdAt":"2024-12-08T15:45:10.839Z"} 
+{"level":"info","message":"Service with http://google.com working","origin":"check-service.ts","createdAt":"2024-12-08T15:45:20.380Z"} 
+{"level":"info","message":"Service with http://google.com working","origin":"check-service.ts","createdAt":"2024-12-08T15:45:30.378Z"} 
+{"level":"info","message":"Service with http://google.com working","origin":"check-service.ts","createdAt":"2024-12-08T15:45:40.391Z"} 
+{"level":"info","message":"Email with logs sent","origin":"email.service.ts","createdAt":"2024-12-08T15:49:16.826Z"} 
